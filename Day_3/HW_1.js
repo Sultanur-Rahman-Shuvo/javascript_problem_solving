@@ -11,33 +11,31 @@
 //     *
 // ✨ Focuses on conditionally printing edges and spaces.
 
+const n = 10;
 
-// Print Hollow Inverted Pyramid
+let line = "";
+for (let i = 0; i < n; i++) {
+  // for spaces
+  for (let k = 0; k < i; k++) {
+    line += " ";
+  }
 
-// Input: Rows = 5
+  // starting star
+  line += "*";
 
-// Output:
+  // middle stars and spaces
+  if (i === 0) {
+    line += "*".repeat((n - i) * 2 - 3);
+  } else if (i !== n - 1) {
+    line += " ".repeat((n - i) * 2 - 3);
+  }
 
-// *********
-//  *     *
-//   *   *
-//    * *
-//     *
-// ✨ Focuses on conditionally printing edges and spaces.
+  // ending star
+  if (i !== n - 1) {
+    line += "*";
+  }
 
-const row = 5
-
-for(let i = 1; i <= row; i++) {
-    let str = ''
-
-    for(let j = 1; j <= 2*row - i; j++) {
-        if(j <= i - 1) {
-            str += ' '
-        } else if(i === 1 || j === i || j === 2*row - i) {
-            str += '*'
-        } else {
-            str += ' '
-        }
-    }
-    console.log(str);
+  line += "\n";
 }
+
+console.log(line);
